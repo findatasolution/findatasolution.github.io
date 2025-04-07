@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+
+    <div class="sidebar" id="sidebar">
+      <h2 onclick="toggleSub('bi')">
+        📊 <span class="text">1) BI</span>
+      </h2>
+      <ul id="bi">
+        <li>Power BI</li>
+        <li>DAX & Power Query</li>
+        <li>Data Warehousing</li>
+      </ul>
+  
+      <h2 onclick="toggleSub('da')">
+        📈 <span class="text">2) Data Analyst</span>
+      </h2>
+      <ul id="da">
+        <li>SQL Queries</li>
+        <li>Data Cleaning</li>
+        <li>EDA</li>
+      </ul>
+  
+      <h2 onclick="toggleSub('ds')">
+        🤖 <span class="text">3) Data Scientist and Math</span>
+      </h2>
+      <ul id="ds">
+        <li>Machine Learning</li>
+        <li onclick="loadPage('pages/1.3.lossfunction.html')">1.3. Loss Function</li>
+        <li>Statistics</li>
+        <li>Linear Algebra</li>
+      </ul>
+    </div>
+  
+    <div class="main" id="main-content">
+      <!-- This will be filled dynamically -->
+    </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Collapsible Sidebar</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      background: #f5f5f5;
+    }
+    
+    /* Watermark styles */
+    body::before {
+      content: "visit hiienng.github.io";
+      position: fixed;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-30deg);
+      font-size: 4em;
+      color: rgba(0, 0, 0, 0.08);
+      z-index: 9999;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    .sidebar {
+      width: 250px;
+      background-color: #2c3e50;
+      color: white;
+      height: 100vh;
+      padding-top: 20px;
+      position: fixed;
+      overflow-y: auto;
+    }
+
+    .sidebar h2 {
+      padding: 15px;
+      margin: 0;
+      font-size: 18px;
+      background-color: #34495e;
+      cursor: pointer;
+      border-top: 1px solid #1a252f;
+      user-select: none;
+    }
+
+    .sidebar ul {
+      list-style-type: none;
+      padding-left: 20px;
+      margin: 0;
+      display: none;
+      background-color: #3b4a59;
+    }
+
+    .sidebar ul li {
+      padding: 10px;
+      font-size: 14px;
+      border-bottom: 1px solid #1a252f;
+    }
+
+    .sidebar ul li:hover {
+      background-color: #485868;
+      cursor: pointer;
+    }
+
+    .main {
+      margin-left: 250px;
+      padding: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    h1 {
+      color: #333;
+    }
+    /* Optional scrollbar styling */
+    .sidebar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .sidebar::-webkit-scrollbar-thumb {
+      background-color: #888;
+      border-radius: 10px;
+    }
+  </style>
+    <script>
+        // Prevent right-click
+        document.addEventListener('contextmenu', function (e) {
+          e.preventDefault();
+        });
+    
+        // Disable Ctrl+C, Ctrl+U, Ctrl+Shift+I (Inspect), etc.
+        document.addEventListener('keydown', function (e) {
+          if (
+            (e.ctrlKey && (e.key === 'c' || e.key === 'u')) ||
+            (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+            (e.metaKey && (e.key === 'c' || e.key === 'u'))
+          ) {
+            e.preventDefault();
+          }
+        });
+      </script>
+</head>
+<body>
+
+  <div class="sidebar">
+    <h2 onclick="toggleSection('bi')">1) BI</h2>
+    <ul id="bi">
+      <li>Power BI</li>
+      <li>Data Warehousing</li>
+      <li>DAX & Power Query</li>
+    </ul>
+
+    <h2 onclick="toggleSection('da')">2) Data Analyst</h2>
+    <ul id="da">
+      <li>SQL Queries</li>
+      <li>Data Cleaning</li>
+      <li>Exploratory Analysis</li>
+    </ul>
+
+    <h2 onclick="toggleSection('ds')">3) Data Scientist and Math</h2>
+    <ul id="ds">
+      <li>Machine Learning</li>
+      <li>Statistics</li>
+      <li>Linear Algebra</li>
+      <li>Probability Theory</li>
+    </ul>
+  </div>
+
+  <div class="main">
+
+    <h1>📊 Loss Functions of Popular Machine Learning Algorithms</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Algorithm</th>
+          <th>Typical Use Case</th>
+          <th>Common Loss Function(s)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Linear Regression</td>
+          <td>Regression</td>
+          <td>Mean Squared Error (MSE), <br>Mean Absolute Error (MAE), <br>Huber Loss, <br>Quantile Loss</td>
+        </tr>
+        <tr>
+          <td>Logistic Regression</td>
+          <td>Binary Classification</td>
+          <td>Binary Cross-Entropy (Log Loss), <br>Hinge Loss (occasionally)</td>
+        </tr>
+        <tr>
+          <td>Decision Tree Classifier</td>
+          <td>Classification</td>
+          <td>Gini Impurity, <br>Entropy (Information Gain)</td>
+        </tr>
+        <tr>
+          <td>Decision Tree Regressor</td>
+          <td>Regression</td>
+          <td>MSE, MAE, Huber Loss</td>
+        </tr>
+        <tr>
+          <td>Random Forest Classifier</td>
+          <td>Classification</td>
+          <td>Gini Impurity, Entropy</td>
+        </tr>
+        <tr>
+          <td>Random Forest Regressor</td>
+          <td>Regression</td>
+          <td>MSE, MAE, Huber Loss</td>
+        </tr>
+        <tr>
+          <td>SVM</td>
+          <td>Classification</td>
+          <td>Hinge Loss, Squared Hinge Loss, Logistic Loss</td>
+        </tr>
+        <tr>
+          <td>k-NN</td>
+          <td>Classification, <br> Regression</td>
+          <td>No direct loss; uses distance metrics (e.g., Euclidean, Manhattan)</td>
+        </tr>
+        <tr>
+          <td>Naive Bayes</td>
+          <td>Classification</td>
+          <td>Negative Log-Likelihood, <br>no explicit loss function</td>
+        </tr>
+        <tr>
+          <td>Neural Networks</td>
+          <td>Classification, <br>Regression</td>
+          <td>Regression: MSE, MAE, Huber<br>Classification: Cross-Entropy, Focal Loss, KLDivergence</td>
+        </tr>
+        <tr>
+          <td>AdaBoost</td>
+          <td>Classification</td>
+          <td>Exponential Loss, <br>Log Loss (LogitBoost)</td>
+        </tr>
+        <tr>
+          <td>Gradient Boosting</td>
+          <td>Classification, <br>Regression</td>
+          <td>Regression: MSE, MAE, Huber<br>Classification: Log Loss, Deviance, Cross-Entropy</td>
+        </tr>
+        <tr>
+          <td>LightGBM / CatBoost / XGBoost</td>
+          <td>Classification, <br>Regression</td>
+          <td>MSE, MAE, Huber, Poisson, Tweedie, Quantile, Cross-Entropy</td>
+        </tr>
+        <tr>
+          <td>K-Means</td>
+          <td>Unsupervised</td>
+          <td>Within-Cluster Sum of Squares (WCSS)</td>
+        </tr>
+        <tr>
+          <td>Reinforcement Learning</td>
+          <td>Decision Making</td>
+          <td>TD Error, Policy Gradient Loss, Actor-Critic Loss</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+  </div>
+
+  <script>
+    function toggleSection(id) {
+      var section = document.getElementById(id);
+      section.style.display = section.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+
+</body>
+</html>
