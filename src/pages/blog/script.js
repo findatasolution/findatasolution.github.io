@@ -11,7 +11,7 @@ function toggleSidebar() {
   main.classList.toggle('squeezed');
 }
 
-// ✅ Hàm load nội dung vào main-content 
+
 function loadPage(filename) {
   console.log(`Đang tải trang: ${filename}`); // In ra tên tệp đang được tải
   fetch(`pages/${filename}`)
@@ -23,8 +23,11 @@ function loadPage(filename) {
       return response.text();
     })
     .then(html => {
-      console.log("Trang đã được tải thành công"); // In thông báo khi trang tải thành công
+      // Cập nhật nội dung của trang chính
       document.getElementById("main-content").innerHTML = html;
+
+      // Thay đổi URL trong thanh địa chỉ trình duyệt mà không reload trang
+      history.pushState({ page: filename }, "", filename);
     })
     .catch(error => {
       console.error("Lỗi:", error); // In lỗi chi tiết vào console

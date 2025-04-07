@@ -1,93 +1,88 @@
-
 <h1>📊 Loss Functions of Popular Machine Learning Algorithms</h2>
 
-    <table>
-      <thead>
-        <tr>
-          <th>Algorithm</th>
-          <th>Typical Use Case</th>
-          <th>Common Loss Function(s)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Linear Regression</td>
-          <td>Regression</td>
-          <td>Mean Squared Error (MSE), <br>Mean Absolute Error (MAE), <br>Huber Loss, <br>Quantile Loss</td>
-        </tr>
-        <tr>
-          <td>Logistic Regression</td>
-          <td>Binary Classification</td>
-          <td>Binary Cross-Entropy (Log Loss), <br>Hinge Loss (occasionally)</td>
-        </tr>
-        <tr>
-          <td>Decision Tree Classifier</td>
-          <td>Classification</td>
-          <td>Gini Impurity, <br>Entropy (Information Gain)</td>
-        </tr>
-        <tr>
-          <td>Decision Tree Regressor</td>
-          <td>Regression</td>
-          <td>MSE, MAE, Huber Loss</td>
-        </tr>
-        <tr>
-          <td>Random Forest Classifier</td>
-          <td>Classification</td>
-          <td>Gini Impurity, Entropy</td>
-        </tr>
-        <tr>
-          <td>Random Forest Regressor</td>
-          <td>Regression</td>
-          <td>MSE, MAE, Huber Loss</td>
-        </tr>
-        <tr>
-          <td>SVM</td>
-          <td>Classification</td>
-          <td>Hinge Loss, Squared Hinge Loss, Logistic Loss</td>
-        </tr>
-        <tr>
-          <td>k-NN</td>
-          <td>Classification, <br> Regression</td>
-          <td>No direct loss; uses distance metrics (e.g., Euclidean, Manhattan)</td>
-        </tr>
-        <tr>
-          <td>Naive Bayes</td>
-          <td>Classification</td>
-          <td>Negative Log-Likelihood, <br>no explicit loss function</td>
-        </tr>
-        <tr>
-          <td>Neural Networks</td>
-          <td>Classification, <br>Regression</td>
-          <td>Regression: MSE, MAE, Huber<br>Classification: Cross-Entropy, Focal Loss, KLDivergence</td>
-        </tr>
-        <tr>
-          <td>AdaBoost</td>
-          <td>Classification</td>
-          <td>Exponential Loss, <br>Log Loss (LogitBoost)</td>
-        </tr>
-        <tr>
-          <td>Gradient Boosting</td>
-          <td>Classification, <br>Regression</td>
-          <td>Regression: MSE, MAE, Huber<br>Classification: Log Loss, Deviance, Cross-Entropy</td>
-        </tr>
-        <tr>
-          <td>LightGBM / CatBoost / XGBoost</td>
-          <td>Classification, <br>Regression</td>
-          <td>MSE, MAE, Huber, Poisson, Tweedie, Quantile, Cross-Entropy</td>
-        </tr>
-        <tr>
-          <td>K-Means</td>
-          <td>Unsupervised</td>
-          <td>Within-Cluster Sum of Squares (WCSS)</td>
-        </tr>
-        <tr>
-          <td>Reinforcement Learning</td>
-          <td>Decision Making</td>
-          <td>TD Error, Policy Gradient Loss, Actor-Critic Loss</td>
-        </tr>
-      </tbody>
-    </table>
-
-
-  </div>
-
+  <table>
+    <thead>
+      <tr>
+        <th>Algorithm</th>
+        <th>Typical Use Case</th>
+        <th>Common Loss Function(s)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Linear Regression</td>
+        <td>Regression</td>
+        <td>Mean Squared Error (MSE), <br>Mean Absolute Error (MAE), <br>Huber Loss, <br>Quantile Loss</td>
+      </tr>
+      <tr>
+        <td>Logistic Regression</td>
+        <td>Binary Classification</td>
+        <td>Binary Cross-Entropy (Log Loss), <br>Hinge Loss (occasionally)</td>
+      </tr>
+      <tr>
+        <td>Decision Tree Classifier</td>
+        <td>Classification</td>
+        <td>Gini Impurity, <br>Entropy (Information Gain)</td>
+      </tr>
+      <tr>
+        <td>Decision Tree Regressor</td>
+        <td>Regression</td>
+        <td>MSE, MAE, Huber Loss</td>
+      </tr>
+      <tr>
+        <td>Random Forest Classifier</td>
+        <td>Classification</td>
+        <td>Gini Impurity, Entropy</td>
+      </tr>
+      <tr>
+        <td>Random Forest Regressor</td>
+        <td>Regression</td>
+        <td>MSE, MAE, Huber Loss</td>
+      </tr>
+      <tr>
+        <td>SVM</td>
+        <td>Classification</td>
+        <td>Hinge Loss, Squared Hinge Loss, Logistic Loss</td>
+      </tr>
+      <tr>
+        <td>k-NN</td>
+        <td>Classification, <br> Regression</td>
+        <td>No direct loss; uses distance metrics (e.g., Euclidean, Manhattan)</td>
+      </tr>
+      <tr>
+        <td>Naive Bayes</td>
+        <td>Classification</td>
+        <td>Negative Log-Likelihood, <br>no explicit loss function</td>
+      </tr>
+      <tr>
+        <td>Neural Networks</td>
+        <td>Classification, <br>Regression</td>
+        <td>Regression: MSE, MAE, Huber<br>Classification: Cross-Entropy, Focal Loss, KLDivergence</td>
+      </tr>
+      <tr>
+        <td>AdaBoost</td>
+        <td>Classification</td>
+        <td>Exponential Loss, <br>Log Loss (LogitBoost)</td>
+      </tr>
+      <tr>
+        <td>Gradient Boosting</td>
+        <td>Classification, <br>Regression</td>
+        <td>Regression: MSE, MAE, Huber<br>Classification: Log Loss, Deviance, Cross-Entropy</td>
+      </tr>
+      <tr>
+        <td>LightGBM / CatBoost / XGBoost</td>
+        <td>Classification, <br>Regression</td>
+        <td>MSE, MAE, Huber, Poisson, Tweedie, Quantile, Cross-Entropy</td>
+      </tr>
+      <tr>
+        <td>K-Means</td>
+        <td>Unsupervised</td>
+        <td>Within-Cluster Sum of Squares (WCSS)</td>
+      </tr>
+      <tr>
+        <td>Reinforcement Learning</td>
+        <td>Decision Making</td>
+        <td>TD Error, Policy Gradient Loss, Actor-Critic Loss</td>
+      </tr>
+    </tbody>
+  </table>
