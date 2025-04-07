@@ -126,7 +126,7 @@
     </ul>
   </div>
 
-  <div class="main" id="main">
+  <div class="main" id="main-content">
     <h1>Welcome</h1>
     <p>This layout features a collapsible sidebar. When collapsed, main headers are replaced with icons only!</p>
   </div>
@@ -139,7 +139,7 @@
 
     function toggleSidebar() {
       const sidebar = document.getElementById('sidebar');
-      const main = document.getElementById('main');
+      const main = document.getElementById('main-content');
       sidebar.classList.toggle('collapsed');
       main.classList.toggle('squeezed');
     }

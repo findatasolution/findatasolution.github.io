@@ -86,6 +86,20 @@ body {
   border-radius: 4px;
 }
 
+body::before {
+  content: "visit findatasolution.github.io";
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-30deg);
+  font-size: 4em;
+  color: rgba(0, 0, 0, 0.08);
+  z-index: 9999;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -105,3 +119,4 @@ th {
 tr:nth-child(even) {
   background-color: #f2f2f2;
 }
+

@@ -1,4 +1,3 @@
-
 function toggleSub(id) {
   const el = document.getElementById(id);
   el.style.display = el.style.display === 'block' ? 'none' : 'block';
@@ -6,7 +5,7 @@ function toggleSub(id) {
 
 function toggleSidebar() {
   const sidebar = document.getElementById('sidebar');
-  const main = document.getElementById('main');
+  const main = document.getElementById('main-content');
   sidebar.classList.toggle('collapsed');
   main.classList.toggle('squeezed');
 }
@@ -34,3 +33,20 @@ function loadPage(filename) {
       document.getElementById("main-content").innerHTML = "<h2>404 - Page not found</h2>";
     });
 }
+
+
+// Prevent right-click
+document.addEventListener('contextmenu', function (e) {
+  e.preventDefault();
+});
+
+// Disable Ctrl+C, Ctrl+U, Ctrl+Shift+I (Inspect), etc.
+document.addEventListener('keydown', function (e) {
+  if (
+    (e.ctrlKey && (e.key === 'c' || e.key === 'u')) ||
+    (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+    (e.metaKey && (e.key === 'c' || e.key === 'u'))
+  ) {
+    e.preventDefault();
+  }
+});
