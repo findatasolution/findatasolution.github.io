@@ -4,6 +4,22 @@
   <meta charset="UTF-8" />
   <title>App</title>
   <link rel="stylesheet" href="style.css" />
+  <!-- Cấu hình MathJax -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$','$$'], ['\\[','\\]']],
+        processEscapes: true
+      }
+    });
+  </script>
+
+  <!-- Nạp MathJax v2 -->
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+
 </head>
 <body>
     <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
@@ -22,21 +38,22 @@
         📈 <span class="text">2) Data Analyst</span>
       </h2>
       <ul id="da">
-        <li>SQL Queries</li>
-        <li>Data Cleaning</li>
-        <li>EDA</li>
+        <li onclick="loadPage('2.1.FRM.html')">1.2. Parameter</li>
       </ul>
   
       <h2 onclick="toggleSub('ds')">
         🤖 <span class="text">3) Data Scientist and Math</span>
       </h2>
       <ul id="ds">
-        <li onclick="loadPage('1.2.parameter.html')">1.2. Parameter</li>
-        <li onclick="loadPage('1.3.lossfunction.html')">1.3. Loss Function</li>
-      </ul>    
-      <li onclick="toggleSub('home')" style="position: fixed; bottom: 20px; left: 20px;">
-        <span class="text" style="color: white;"><a href="/../../../../../index.html" style="color: white;"> Back to Findata Solutions </a></span>
-      </li>
+        <li onclick="loadPage('3.1.feature.html')">3.1. Feature</li>
+        <li onclick="loadPage('3.2.parameter.html')">3.2. Parameter</li>
+        <li onclick="loadPage('3.3.lossfunction.html')">3.3. Loss Function</li>
+        <li onclick="loadPage('3.4.evaluation.html')">3.4. Evaluation</li>
+      </ul id="home">    
+        <li onclick="toggleSub('home')" style="position: fixed; bottom: 20px; left: 20px;">
+          <span class="text" style="color: white;"><a href="/../../../../../index.html" style="color: white;"> Visit Findata Solutions </a></span>
+        </li>
+      </ul>
     </div>
     <div class="main" id="main-content">
       <!-- This will be filled dynamically -->

@@ -1,0 +1,113 @@
+<h1>Loss Functions of Popular Machine Learning Algorithms</h1>
+
+  <h2>MSE - Mean Squared Error</h2>
+  <p>MSE is a loss function that measures the average of the squares of the errors. It is a popular loss function for regression problems.</p>
+  <p>The MSE function is given by:</p>
+  <p>
+      $$\operatorname{MSE} = \frac{1}{n} \sum_{i=1}^{n} \left( Y_{i} - \hat{Y_{i}} \right)^{2}$$
+  </p>
+  <p>where $n$ is the number of samples, $y_i$ is the actual value, and $\hat{y}_i$ is the predicted value.</p>
+  <p>MSE is sensitive to outliers because it squares the errors.</p>
+  
+  <h2>MAE - Mean Absolute Error</h2>
+  <p>MAE is a loss function that measures the average of the absolute errors. It is a popular loss function for regression problems.</p>
+  <p>The MAE function is given by:</p>
+  <p>
+      $$\operatorname{MAE} = \frac{1}{n} \sum_{i=1}^{n} \left| Y_{i} - \hat{Y_{i}} \right|$$
+  </p>
+  <p>where $n$ is the number of samples, $y_i$ is the actual value, and $\hat{y}_i$ is the predicted value.</p>
+  <p>MAE is less sensitive to outliers because it does not square the errors.</p>
+  <h2>R square</h2>
+  <p>R square is a loss function that measures the average of the absolute errors. It is a popular loss function for regression problems.</p>
+  <p>The R square function is given by:</p>
+  <p>
+      $$R^2 = 1 - \frac{\sum_{i=1}^{n} \left( Y_{i} - \hat{Y_{i}} \right)^{2}}{\sum_{i=1}^{n} \left( Y_{i} - \bar{Y} \right)^{2}}$$
+  </p>
+  <p>where $n$ is the number of samples, $y_i$ is the actual value, and $\hat{y}_i$ is the predicted value.</p>
+  <p>R square is used to measure the goodness of fit of a regression model.</p>
+
+  <h2>Gini Impurity</h2>
+  <p>Gini Impurity is a loss function that measures the impurity of a classification model.</p>
+  <p>The Gini Impurity function is given by:</p>
+  <p>
+      $$Gini = 1 - \sum_{i=1}^{n} \left( \frac{y_i}{n} \right)^{2}$$
+  </p>
+  <p>where $n$ is the number of samples, and $y_i$ is the actual value.</p>
+  <p>Gini Impurity is used to measure the impurity of a classification model.</p>
+
+  <h2>Entropy</h2>
+  <p>Entropy is a loss function that measures the impurity of a classification model.</p>
+  <p>The Entropy function is given by:</p>
+  <p>
+      $$Entropy = -\sum_{i=1}^{n} \left( \frac{y_i}{n} \right) \log \left( \frac{y_i}{n} \right)$$
+  </p>
+  <p>where $n$ is the number of samples, and $y_i$ is the actual value.</p>
+  <p>Entropy is used to measure the impurity of a classification model.</p>
+
+  <h2>Cross Entropy</h2>
+  <p>Cross Entropy is a loss function that measures the cross entropy between the predicted and actual values.</p>
+  <p>The Cross Entropy function is given by:</p>
+  <p>
+      $$Cross Entropy = -\sum_{i=1}^{n} \left( y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \right)$$
+  </p>
+  <p>where $n$ is the number of samples, $y_i$ is the actual value, and $\hat{y}_i$ is the predicted value.</p>
+  <p>Cross Entropy is used to measure the cross entropy between the predicted and actual values.</p>  
+
+  <h2>PSI</h2>
+  <p>PSI is a loss function that measures the probability of a sample being in a class.</p>
+  <p>The PSI function is given by:</p>
+  <p>
+      $$PSI = \sum_{i=1}^{n} \left( \frac{y_i}{n} \right) \log \left( \frac{y_i}{n} \right)$$
+  </p>
+  <p>where $n$ is the number of samples, and $y_i$ is the actual value.</p>
+  <p>PSI is used to measure the probability of a sample being in a class.</p> 
+  
+  <h2>KS</h2>
+  <p>KS is a loss function that measures the Kolmogorov-Smirnov distance between the predicted and actual values.</p>  
+  <p>The KS function is given by:</p>
+  <p>
+      $$KS = \sum_{i=1}^{n} \left( \frac{y_i}{n} \right) \log \left( \frac{y_i}{n} \right)$$
+  </p>  
+  <p>where $n$ is the number of samples, and $y_i$ is the actual value.</p>
+  <p>KS is used to measure the Kolmogorov-Smirnov distance between the predicted and actual values.</p>
+
+  <h2>AUC</h2>
+  <p>AUC is a loss function that measures the area under the ROC curve.</p>  
+  <p>The AUC function is given by:</p>
+  <p>
+      $$AUC = \int_{0}^{1} \left( \frac{y_i}{n} \right) \log \left( \frac{y_i}{n} \right)$$
+  </p>  
+  <p>where $n$ is the number of samples, and $y_i$ is the actual value.</p>
+  <p>AUC is used to measure the area under the ROC curve.</p>   
+  
+  <h2>F1 Score</h2>
+  <p>F1 Score is a loss function that measures the F1 score between the predicted and actual values.</p>  
+  <p>The F1 Score function is given by:</p>
+  <p>
+      $$F1 Score = \sum_{i=1}^{n} \left( \frac{y_i}{n} \right) \log \left( \frac{y_i}{n} \right)$$
+  </p>  
+  <p>where $n$ is the number of samples, and $y_i$ is the actual value.</p>
+  <p>F1 Score is used to measure the F1 score between the predicted and actual values.</p>
+
+  <h2>Recall</h2>
+  <p>Recall is a loss function that measures the recall between the predicted and actual values.</p>  
+  <p>The Recall function is given by:</p>
+  <p>
+      $$Recall = \sum_{i=1}^{n} \left( \frac{y_i}{n} \right) \log \left( \frac{y_i}{n} \right)$$
+  </p>  
+  <p>where $n$ is the number of samples, and $y_i$ is the actual value.</p>
+  <p>Recall is used to measure the recall between the predicted and actual values.</p>  
+
+  <h2>Precision</h2>
+  <p>Precision is a loss function that measures the precision between the predicted and actual values.</p>  
+  <p>The Precision function is given by:</p>
+  <p>
+      $$Precision = \sum_{i=1}^{n} \left( \frac{y_i}{n} \right) \log \left( \frac{y_i}{n} \right)$$
+  </p>    
+  <p>where $n$ is the number of samples, and $y_i$ is the actual value.</p>
+  <p>Precision is used to measure the precision between the predicted and actual values.</p>
+
+  
+  
+  
+  
