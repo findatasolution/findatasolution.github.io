@@ -14,18 +14,17 @@
         <td><img src="assets\images\LR.png" style="width: 100px; height: 100px; object-fit: contain;"> </td>
         <td>Linear Regression</td>
         <td>Regression</td>
-        <td>MSE, MAE, Huber Loss, <br>Quantile Loss</td>
+        <td>MSE, MAEs</td>
       </tr>
       <tr>
         <td><img src="assets\images\LogR.png" style="width: 100px; height: 100px; object-fit: contain;"></td>
         <td>Logistic Regression</td>
         <td>Binary Classification</td>
-        <td>Log Loss, <br>Hinge Loss (occasionally)</td>
+        <td>Log Loss</td>
       </tr>
       <tr>
         <td><img src="assets\images\DecisionTree.png" style="width: 100px; height: 100px; object-fit: contain;"> </td>
         <td>Decision Tree:
-          <br> 1. Ensemble methods
           <br> 1.1 Bagging - Random Forest
           <br> 1.2.1 Boosting - AdaBoost
           <br> 1.2.2 Boosting - Gradient Boosting
@@ -58,7 +57,7 @@
         <td></td>
         <td>Neural Networks</td>
         <td>Classification, <br>Regression</td>
-        <td>Regression: MSE, MAE, Huber<br>Classification: Cross-Entropy, Focal Loss, KLDivergence</td>
+        <td>Regression: MSE, MAE <br>Classification: Cross-Entropy / Log loss</td>
       </tr>
       <tr>
         <td></td>
@@ -103,6 +102,11 @@
       $$R^2 = 1 - \frac{\sum_{i=1}^{n} \left( Y_{i} - \hat{Y_{i}} \right)^{2}}{\sum_{i=1}^{n} \left( Y_{i} - \bar{Y} \right)^{2}}$$
   </p>
   <p>where $n$ is the number of samples, $y_i$ is the actual value, and $\hat{y}_i$ is the predicted value.</p>
+  <p>Value range from 0 to 1, 1 is the best fit.</p>
+  <p>Common thresholds are: 
+    - > 0.8 is good
+    - 0.5 - 0.8 is fair
+    - = 0.5 random fit.</p>
   <p>R square is used to measure the goodness of fit of a regression model.</p>
 
   <h2>Log Loss - Binary Cross-Entropy</h2>
@@ -112,53 +116,22 @@
       $$L(y, \hat{y}) = -\frac{1}{n} \sum_{i=1}^{n} \left( y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \right)$$
   </p>
   <p>where $n$ is the number of samples, $y_i$ is the actual value, and $\hat{y}_i$ is the predicted value.</p>
+  <p>Value range from 0 to infinity, 0 is the best fit.</p>
+  <p>Common thresholds are:
+    - < 0.2 : Good
+    - 0.2 - 0.5 : Fair
+    - > 0.5: Bad
+  </p>
   <p>Log Loss is used in binary classification problems.</p>
 
-  <h2>Huber Loss</h2>
-  <p>Huber Loss is a loss function that measures the average of the absolute errors. It is a popular loss function for regression problems.</p>
-  <p>The Huber Loss function is given by:</p>
-  <p>   
-      $$L_{\delta}(y, \hat{y}) = \begin{cases} 
-      \frac{1}{2}(y - \hat{y})^2 & \text{if } |y - \hat{y}| \leq \delta \\
-      \delta(|y - \hat{y}| - \frac{\delta}{2}) & \text{if } |y - \hat{y}| > \delta 
-      \end{cases}$$
+  <h1>Learning process</h1>
+  <p>Boosting Model learning between node, improve the model by loss function. This example work on Logistic Loss</p> 
+  <p>The loss function is given by:</p>
+  <p>
+      $$L(y, \hat{y}) = -\frac{1}{n} \sum_{i=1}^{n} \left( y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \right)$$
   </p>
   <p>where $n$ is the number of samples, $y_i$ is the actual value, and $\hat{y}_i$ is the predicted value.</p>
-  <p>Huber Loss combines the best properties of MSE and MAE:</p>
-  <ul>
-    <li>For small errors (when |y - ŷ| ≤ δ), it behaves like MSE, using the squared error term</li>
-    <li>For large errors (when |y - ŷ| > δ), it behaves like MAE, using the linear error term</li>
-  </ul>
-
-  <p>The parameter δ (delta) controls the transition point between the quadratic and linear portions:</p>
-  <ul>
-    <li>When δ → ∞, Huber Loss becomes equivalent to MSE</li>
-    <li>When δ → 0, Huber Loss becomes equivalent to MAE</li>
-  </ul>
-
-  <p>Key advantages of Huber Loss:</p>
-  <ul>
-    <li>Combines the differentiability of MSE near zero with the robustness of MAE for outliers</li>
-    <li>Provides stable gradients for small errors while being less sensitive to outliers</li>
-    <li>The δ parameter can be tuned to optimize the trade-off between MSE and MAE behavior</li>
-  </ul>
-
-  <p>This makes Huber Loss particularly useful in scenarios where:</p>
-  <ul>
-    <li>The data contains outliers but you still want smooth gradients near the minimum</li>
-    <li>You need a compromise between the high sensitivity of MSE and the constant-gradient nature of MAE</li>
-    <li>The model needs to be robust while maintaining good convergence properties</li>
-  </ul>
-
-  <h2>Quantile Loss</h2>
-  <p>Quantile Loss is a loss function that measures the average of the absolute errors. It is a popular loss function for regression problems.</p>
-  <p>The Quantile Loss function is given by:</p>
-  <p>
-      $$L_{\tau}(y, \hat{y}) = (y - \hat{y})(\tau - I(y < \hat{y}))$$
-  </p>
-  <p>where $n$ is the number of samples, $y_i$ is the actual value, and $\hat{y}_i$ is the predicted value.</p>  
+  <p>Log Loss is used in binary classification problems.</p>
+  <p>The loss function is used to improve the model by minimizing the loss function.</p>
+  <p> </p>
   
-
-
-  
-

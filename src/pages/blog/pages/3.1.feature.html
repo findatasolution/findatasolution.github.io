@@ -6,22 +6,75 @@
 
 <h2>Feature Engineering for Numerical Data</h2>
 
-<h3>1. Feature Creation</h3> 
+<h3>1. Feature Creation - Longlist</h3> 
 <p>Feature creation is the process of creating new features from a dataset to improve the performance of machine learning models.</p>
 
-<h3>2. Feature Selection</h3>
+<h3>2. Feature Selection - Shortlist</h3>
 <p>Feature selection is the process of selecting the most important features from a dataset to improve the performance of machine learning models.</p>
-<p>PSI, Gini, Information Gain, Chi-Square, Missing Value Ratio, Correlation, PCA</p>
-<p>Example:</p>
+<p>PSI, Information Gain, Missing Value Ratio, Correlation</p>
+<h4>PSI</h4>
+<p>PSI - Population Stability Index</p>
+<p> PSI tell us the stability of a feature. </p>
+<p> Common thresholds are:
+    - PSI < = 0.1, feature is stable
+    - 0.1 > PSI > 0.25, feature is slightly unstable
+    - PSI > 0.25, feature is unstable</p>
 
-<h3>3. Feature Extraction</h3>
-<p>Feature extraction is the process of extracting features from a dataset to improve the performance of machine learning models.</p>
+<h4>Information Gain</h4>
 
-<h3>4. Feature Transformation</h3>
-<p>Feature transformation is the process of transforming features from a dataset to improve the performance of machine learning models.</p>
+<h4>Correlation</h4>
+<p>Correlation is a measure of the relationship between two variables.</p>
+<p>Common thresholds are:
+    - Correlation < 0.3, feature is not correlated
+    - 0.3 > Correlation > 0.7, feature is moderately correlated
+    - Correlation > 0.7, feature is highly correlated</p>
 
-<h2>Feature Engineering for Time Series Data</h2>
 
-<h2>Feature Engineering for Text Data</h2>
+<h3>Summarize</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Indicator</th>
+      <th>Range</th>
+      <th>Threshold</th>
+      <th>Interpretation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PSI (Population Stability Index)</td>
+      <td>0 to ∞</td>
+      <td>
+        PSI ≤ 0.1<br>
+        0.1 < PSI ≤ 0.25<br>
+        PSI > 0.25
+      </td>
+      <td>
+        Stable feature<br>
+        Slightly unstable feature<br>
+        Unstable feature
+      </td>
+    </tr>
+    <tr>
+      <td>Correlation</td>
+      <td>-1 to 1</td>
+      <td>
+        |Correlation| < 0.3<br>
+        0.3 ≤ |Correlation| ≤ 0.7<br>
+        |Correlation| > 0.7
+      </td>
+      <td>
+        Not correlated<br>
+        Moderately correlated<br>
+        Highly correlated
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
 
 
