@@ -1,3 +1,5 @@
+<!-- python -m http.server -->
+<!-- http://localhost:8000 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,38 +24,56 @@
 
 </head>
 <body>
-    <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+    <button class="toggle-btn" onclick="toggleSidebar()">⇄</button>
 
     <div class="sidebar" id="sidebar">
-      <h2 onclick="toggleSub('bi')">
-        📊 <span class="text">1) BI</span>
-      </h2>
-      <ul id="bi">
-        <li>Power BI</li>
-        <li>DAX & Power Query</li>
-        <li>Data Warehousing</li>
-      </ul>
-  
+
       <h2 onclick="toggleSub('da')">
-        📈 <span class="text">2) Data Analyst</span>
+        📊 <span class="text">1) Data Analyst</span>
       </h2>
       <ul id="da">
-        <li onclick="loadPage('2.1.FRM.html')">1.2. Parameter</li>
+        <li onclick="loadPage('1.1.rfm.html')">1.1. RFM</li>
       </ul>
   
-      <h2 onclick="toggleSub('ds')">
-        🤖 <span class="text">3) Data Scientist and Math</span>
+      <h2 onclick="toggleSub('risk')">
+        🏦 <span class="text">2) Classification - Risk</span>
       </h2>
-      <ul id="ds">
+      <ul id="risk">
         <li onclick="loadPage('3.1.feature.html')">3.1. Feature</li>
-        <li onclick="loadPage('3.2.parameter.html')">3.2. Parameter</li>
+        <li>
+          <span onclick="loadPage('3.2.parameter.html')">3.2. Parameter</span>
+          <span onclick="toggleSub('parameter-options')" style="float: right; cursor: pointer;" title="Click to see all options">🔽</span>
+          <ul id="parameter-options" style="display: none; margin-left: 20px;">
+            <!-- <li onclick="loadPage('3.2.1.randomforest.html')">Random Forest</li> -->
+            <li onclick="loadPage('3.2.2.gradientboosting.html')">Gradient Boosting</li>
+          </ul>
+        </li>
         <li onclick="loadPage('3.3.lossfunction.html')">3.3. Loss Function</li>
         <li onclick="loadPage('3.4.evaluation.html')">3.4. Evaluation</li>
-      </ul id="home">    
-        <li onclick="toggleSub('home')" style="position: fixed; bottom: 20px; left: 20px;">
-          <span class="text" style="color: white;"><a href="/../../../../../index.html" style="color: white;"> Visit Findata Solutions </a></span>
-        </li>
       </ul>
+      <h2 onclick="toggleSub('trading')">
+        📈 <span class="text">3) Timeseries - Trading</span>
+      </h2>
+        <ul id="trading">
+          <!-- <li onclick="loadPage('3.1.feature.html')">3.1. Feature</li>
+          <li onclick="loadPage('3.2.parameter.html')">3.2. Parameter</li>
+          <li onclick="loadPage('3.3.lossfunction.html')">3.3. Loss Function</li>
+          <li onclick="loadPage('3.4.evaluation.html')">3.4. Evaluation</li> -->
+        </ul>
+      <h2 onclick="toggleSub('llm')">
+        💬 <span class="text">4) LLM</span>
+      </h2>
+        <ul id="llm">
+          <!-- <li onclick="loadPage('3.1.feature.html')">3.1. Feature</li>
+          <li onclick="loadPage('3.2.parameter.html')">3.2. Parameter</li>
+          <li onclick="loadPage('3.3.lossfunction.html')">3.3. Loss Function</li>
+          <li onclick="loadPage('3.4.evaluation.html')">3.4. Evaluation</li> -->
+        </ul>
+
+      <div class="home-link" style="position: fixed; bottom: 20px; left: 20px;">
+        <a href="/index.html" style="color: white; text-decoration: none;">🏠Visit Findata Solutions</a>
+      </div>
+    
     </div>
     <div class="main" id="main-content">
       <!-- This will be filled dynamically -->

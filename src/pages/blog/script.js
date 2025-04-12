@@ -52,4 +52,8 @@ document.addEventListener('keydown', function (e) {
   }
 });
 
+function loadPageAndToggle(page, id) {
+  loadPage(page);
+  toggleSub(id);
+}
 

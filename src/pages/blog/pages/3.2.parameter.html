@@ -1,23 +1,89 @@
 <h1>Hyperparameter tunning</h2>
 
 <p>Hyperparameter tuning is the process of finding the best set of parameters for a machine learning model. It is a crucial step in the machine learning workflow, as it can significantly impact the model's performance.</p>
+<p>In order to understand the hyperparameters, we need to understand the model. First, below are the overview of the models. How the hyperparameters works in different models will be discussed in the seperated details sections.</p>
+<p>In the section of Credit Risk Business, we will talk about Gradient Boosting and Logistic Regression model.</p>
+<h2>1. DECISION TREE MODEL</h2>
+<p>Decision Tree is a popular model for classification and regression problems. It is a non-parametric model that builds a tree-like structure to make predictions.
+  There are 2 types of decision tree:
+</p>
+<div style="text-align: center;">
+  <img src="assets/images/bag_boost.png" alt="Bagging and Boosting comparison" style="max-width: 100%; height: auto; margin: 20px 0;">
+  <p style="font-style: italic; color: #666;">Figure: Visual comparison of Bagging and Boosting</p>
+</div>
 
-<h2>Key Concepts</h2>
+<p>The key differences between Bagging and Boosting are:</p>
 
-<h3>What are hyperparameters?</h3>
+<table>
+  <tr>
+    <th>Characteristic</th>
+    <th>Bagging</th>
+    <th>Boosting</th>
+  </tr>
+  <tr>
+    <td>Training</td>
+    <td>Parallel training of models on random subsets</td>
+    <td>Sequential training where each model learns from previous errors</td>
+  </tr>
+  <tr>
+    <td>Sample Weight</td>
+    <td>Equal weights for all samples</td>
+    <td>Higher weights for misclassified samples</td>
+  </tr>
+  <tr>
+    <td>Final Prediction</td>
+    <td>Simple average/majority vote</td>
+    <td>Weighted average based on model performance</td>
+  </tr>
+  <tr>
+    <td>Bias vs Variance</td>
+    <td>Reduces variance, maintains bias</td>
+    <td>Reduces both bias and variance</td>
+  </tr>
+  <tr>
+    <td>Overfitting</td>
+    <td>Less prone to overfitting</td>
+    <td>More prone to overfitting</td>
+  </tr>
+  <tr>
+    <td>Models</td>
+    <td>Random Forest</td>
+    <td>Gradient Boosting
+      <ul>
+        <li>XGBoost</li>
+        <li>LightGBM</li>
+        <li>CatBoost</li>
+      </ul>
+    </td>
+  </tr>
+</table>
 
-<p>Hyperparameters are parameters that are not learned from the data. They are set before the training process and are used to control the learning process.</p>
-<p>This paper is about hyperparameter of XGBoost. 
-  XGBoost is a popular machine learning algorithm that is known for its high performance and accuracy. It is a gradient boosting algorithm that uses decision trees as the base learners.</p>
+<h2>2. LOGISTIC REGRESSION</h2>
+<p>Logistic Regression is a popular model for classification problems. It is a parametric model that builds a linear boundary to separate the data into different classes.</p>
+<h3>When to Use Logistic Regression</h3>
 
-<h3>1. </h3>
-
-<h2>Hyperparameter tuning techniques</h2>
-
-<p>There are several techniques for hyperparameter tuning:</p>
+<p>A classic use case for logistic regression is credit card fraud detection in real-time transaction processing, where:</p>
 
 <ul>
-    <li>Grid Search</li>
-    <li>Random Search</li>
-    <li>Bayesian Optimization</li>
+  <li><strong>Speed is Critical:</strong> Transactions need to be approved/declined within milliseconds</li>
+  <li><strong>Interpretability Matters:</strong> Banks need to explain to regulators and customers why transactions were flagged</li>
+  <li><strong>Data is Structured:</strong> Transaction features like amount, location, merchant type are well-defined</li>
+  <li><strong>Binary Outcome:</strong> The prediction is simply fraudulent vs legitimate</li>
 </ul>
+
+<p>While more complex models like gradient boosting or neural networks might achieve slightly higher accuracy, logistic regression is often preferred in this scenario because:</p>
+
+<ul>
+  <li>It has extremely fast inference time compared to tree-based or deep learning models</li>
+  <li>The coefficients directly show how each feature influences the prediction</li>
+  <li>It requires minimal computational resources, making it cost-effective at scale</li>
+  <li>It's less prone to overfitting when feature engineering is done properly</li>
+  <li>The probability outputs are well-calibrated without additional post-processing</li>
+</ul>
+
+<p>The linear nature of logistic regression, often seen as a limitation, becomes an advantage when rapid, reliable, and explainable decisions are more important than capturing complex non-linear patterns.</p>
+
+<div style="text-align: center;">
+  <img src="assets/images/logisticregression.png" alt="Bagging and Boosting comparison" style="max-width: 100%; height: auto; margin: 20px 0;">
+  <p style="font-style: italic; color: #666;">Figure: Visual comparison of Bagging and Boosting</p>
+</div>

@@ -74,10 +74,6 @@
     </tbody>
   </table>
 
-  <div style="text-align: center;">
-    <img src="/../assets/images/lossfunctions.png" alt="Common Loss Functions" style="max-width: 100%; height: auto; margin: 20px 0;">
-    <p style="font-style: italic; color: #666;">Figure: Visual comparison of common loss functions showing their behavior and characteristics</p>
-  </div>
   <h2>MSE - Mean Squared Error</h2>
   <p>MSE is a loss function that measures the average of the squares of the errors. It is a popular loss function for regression problems.</p>
   <p>The MSE function is given by:</p>
@@ -86,7 +82,11 @@
   </p>
   <p>where $n$ is the number of samples, $y_i$ is the actual value, and $\hat{y}_i$ is the predicted value.</p>
   <p>MSE is sensitive to outliers because it squares the errors.</p>
-  
+  <div style="text-align: center;">
+    <img src="assets/images/lossfunctions.png" alt="Common Loss Functions" style="max-width: 80%; height: auto; margin: 20px 0;">
+    <p style="font-style: italic; color: #666;"></p>
+  </div>
+
   <h2>MAE - Mean Absolute Error</h2>
   <p>MAE is a loss function that measures the average of the absolute errors. It is a popular loss function for regression problems.</p>
   <p>The MAE function is given by:</p>
@@ -103,12 +103,15 @@
   </p>
   <p>where $n$ is the number of samples, $y_i$ is the actual value, and $\hat{y}_i$ is the predicted value.</p>
   <p>Value range from 0 to 1, 1 is the best fit.</p>
-  <p>Common thresholds are: 
-    - > 0.8 is good
-    - 0.5 - 0.8 is fair
-    - = 0.5 random fit.</p>
+  <p>Common thresholds are:</p>
+  <p>- Greater than 0.8 is considered good</p>
+  <p>- Between 0.5 and 0.8 is considered fair</p>
+  <p>- Equal to 0.5 indicates random fit</p>
   <p>R square is used to measure the goodness of fit of a regression model.</p>
-
+  <div style="text-align: center;">
+    <img src="assets/images/rsquare.png" alt="Common Loss Functions" style="max-width: 80%; height: auto; margin: 20px 0;">
+    <p style="font-style: italic; color: #666;"></p>
+  </div>
   <h2>Log Loss - Binary Cross-Entropy</h2>
   <p>Log Loss is a loss function that measures the average of the absolute errors. It is a popular loss function for regression problems.</p>
   <p>The Log Loss function is given by:</p>
@@ -123,15 +126,3 @@
     - > 0.5: Bad
   </p>
   <p>Log Loss is used in binary classification problems.</p>
-
-  <h1>Learning process</h1>
-  <p>Boosting Model learning between node, improve the model by loss function. This example work on Logistic Loss</p> 
-  <p>The loss function is given by:</p>
-  <p>
-      $$L(y, \hat{y}) = -\frac{1}{n} \sum_{i=1}^{n} \left( y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \right)$$
-  </p>
-  <p>where $n$ is the number of samples, $y_i$ is the actual value, and $\hat{y}_i$ is the predicted value.</p>
-  <p>Log Loss is used in binary classification problems.</p>
-  <p>The loss function is used to improve the model by minimizing the loss function.</p>
-  <p> </p>
-  
