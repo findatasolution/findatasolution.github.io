@@ -126,3 +126,65 @@
     - > 0.5: Bad
   </p>
   <p>Log Loss is used in binary classification problems.</p>
+
+  <h2>Log Loss - Binary Cross-Entropy</h2>
+
+<p><strong>Log Loss</strong> (hay còn gọi là <em>Logarithmic Loss</em> hoặc <em>Cross-Entropy Loss</em>) là một hàm đánh giá sai số giữa xác suất dự đoán và nhãn thực tế trong bài toán phân loại nhị phân.</p>
+
+<h3>Công thức:</h3>
+<p>Với một mẫu có nhãn thực tế <code>y ∈ {0, 1}</code> và xác suất dự đoán là <code>ŷ ∈ (0, 1)</code>, công thức Log Loss như sau:</p>
+
+<pre><code>LogLoss = - (y * log(ŷ) + (1 - y) * log(1 - ŷ))</code></pre>
+
+<p>Với N mẫu:</p>
+<pre><code>LogLoss_avg = - (1/N) * Σ [y<sub>i</sub> * log(ŷ<sub>i</sub>) + (1 - y<sub>i</sub>) * log(1 - ŷ<sub>i</sub>)]</code></pre>
+
+<h3>Ý nghĩa:</h3>
+<ul>
+  <li>Nếu dự đoán xác suất gần đúng với thực tế (ví dụ: dự đoán 0.99 cho nhãn là 1) → Log Loss nhỏ → mô hình tốt.</li>
+  <li>Nếu dự đoán sai với xác suất cao (ví dụ: 0.01 cho nhãn là 1) → Log Loss lớn → bị phạt nặng.</li>
+  <li>Log Loss luôn &ge; 0. Giá trị càng nhỏ càng tốt.</li>
+</ul>
+
+<h3>Ví dụ:</h3>
+<table border="1" cellpadding="6">
+  <thead>
+    <tr>
+      <th>Y (Nhãn thật)</th>
+      <th>Ŷ (Xác suất dự đoán)</th>
+      <th>Log Loss</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>0.9</td>
+      <td>-log(0.9) ≈ 0.105</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>0.1</td>
+      <td>-log(0.1) ≈ 2.302</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>0.9</td>
+      <td>-log(1 - 0.9) = -log(0.1) ≈ 2.302</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>0.1</td>
+      <td>-log(0.9) ≈ 0.105</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Ứng dụng:</h3>
+<ul>
+  <li>Được dùng phổ biến trong các bài toán phân loại nhị phân.</li>
+  <li>Là hàm loss mặc định trong nhiều thư viện như <code>sklearn.metrics.log_loss</code>, <code>binary_crossentropy</code> trong Keras,...</li>
+  <li>Đặc biệt hiệu quả với các mô hình dự đoán xác suất như Logistic Regression, Neural Networks.</li>
+</ul>
+
+<p>Nói ngắn gọn, <strong>Log Loss phạt nặng các dự đoán sai với độ tin cậy cao</strong>, do đó nó là một thước đo rất hữu ích để đánh giá mô hình phân loại.</p>
+
