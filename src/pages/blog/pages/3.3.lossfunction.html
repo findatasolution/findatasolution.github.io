@@ -112,79 +112,67 @@
     <img src="assets/images/rsquare.png" alt="Common Loss Functions" style="max-width: 80%; height: auto; margin: 20px 0;">
     <p style="font-style: italic; color: #666;"></p>
   </div>
-  <h2>Log Loss - Binary Cross-Entropy</h2>
-  <p>Log Loss is a loss function that measures the average of the absolute errors. It is a popular loss function for regression problems.</p>
-  <p>The Log Loss function is given by:</p>
+  <h2>Log Loss</h2>
+
+  <p><strong>Log Loss</strong> (also known as <em>Logarithmic Loss</em> or <em>Cross-Entropy Loss</em>) is a loss function that measures the error between predicted probabilities and actual class labels in binary classification problems.</p>
+
+  <h3>Formula:</h3>
+  <p>Given a true label <code>y ∈ {0, 1}</code> and a predicted probability <code>ŷ ∈ (0, 1)</code>, the log loss for a single observation is defined as:</p>
+
+  <pre><code>LogLoss = - (y * log(ŷ) + (1 - y) * log(1 - ŷ))</code></pre>
+
+  <p>For N observations:</p>
   <p>
-      $$L(y, \hat{y}) = -\frac{1}{n} \sum_{i=1}^{n} \left( y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \right)$$
+    $$L(y, \hat{y}) = -\frac{1}{n} \sum_{i=1}^{n} \left( y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \right)$$
   </p>
   <p>where $n$ is the number of samples, $y_i$ is the actual value, and $\hat{y}_i$ is the predicted value.</p>
-  <p>Value range from 0 to infinity, 0 is the best fit.</p>
-  <p>Common thresholds are:
-    - < 0.2 : Good
-    - 0.2 - 0.5 : Fair
-    - > 0.5: Bad
-  </p>
-  <p>Log Loss is used in binary classification problems.</p>
 
-  <h2>Log Loss - Binary Cross-Entropy</h2>
+  <h3>Meaning:</h3>
+  <ul>
+    <li>If the predicted probability is close to the true label (e.g., predicting 0.99 for a true label of 1) → small log loss → good prediction.</li>
+    <li>If the model is confident but wrong (e.g., predicting 0.01 for a true label of 1) → large log loss → heavily penalized.</li>
+    <li>Log loss is always ≥ 0. The lower the value, the better the model.</li>
+  </ul>
 
-<p><strong>Log Loss</strong> (also known as <em>Logarithmic Loss</em> or <em>Cross-Entropy Loss</em>) is a loss function that measures the error between predicted probabilities and actual class labels in binary classification problems.</p>
+  <h3>Example:</h3>
+  <table border="1" cellpadding="6">
+    <thead>
+      <tr>
+        <th>True Label (y)</th>
+        <th>Predicted Probability (ŷ)</th>
+        <th>Log Loss</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>0.9</td>
+        <td>-log(0.9) ≈ 0.105</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>0.1</td>
+        <td>-log(0.1) ≈ 2.302</td>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td>0.9</td>
+        <td>-log(1 - 0.9) = -log(0.1) ≈ 2.302</td>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td>0.1</td>
+        <td>-log(0.9) ≈ 0.105</td>
+      </tr>
+    </tbody>
+  </table>
 
-<h3>Formula:</h3>
-<p>Given a true label <code>y ∈ {0, 1}</code> and a predicted probability <code>ŷ ∈ (0, 1)</code>, the log loss for a single observation is defined as:</p>
+  <h3>Applications:</h3>
+  <ul>
+    <li>Widely used in binary classification problems.</li>
+    <li>Default loss function in many libraries such as <code>sklearn.metrics.log_loss</code> and <code>binary_crossentropy</code> in Keras.</li>
+    <li>Especially useful for models that output probabilities, such as Logistic Regression or Neural Networks.</li>
+  </ul>
 
-<pre><code>LogLoss = - (y * log(ŷ) + (1 - y) * log(1 - ŷ))</code></pre>
-
-<p>For N observations:</p>
-<pre><code>LogLoss_avg = - (1/N) * Σ [y<sub>i</sub> * log(ŷ<sub>i</sub>) + (1 - y<sub>i</sub>) * log(1 - ŷ<sub>i</sub>)]</code></pre>
-
-<h3>Meaning:</h3>
-<ul>
-  <li>If the predicted probability is close to the true label (e.g., predicting 0.99 for a true label of 1) → small log loss → good prediction.</li>
-  <li>If the model is confident but wrong (e.g., predicting 0.01 for a true label of 1) → large log loss → heavily penalized.</li>
-  <li>Log loss is always ≥ 0. The lower the value, the better the model.</li>
-</ul>
-
-<h3>Example:</h3>
-<table border="1" cellpadding="6">
-  <thead>
-    <tr>
-      <th>True Label (y)</th>
-      <th>Predicted Probability (ŷ)</th>
-      <th>Log Loss</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td>0.9</td>
-      <td>-log(0.9) ≈ 0.105</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>0.1</td>
-      <td>-log(0.1) ≈ 2.302</td>
-    </tr>
-    <tr>
-      <td>0</td>
-      <td>0.9</td>
-      <td>-log(1 - 0.9) = -log(0.1) ≈ 2.302</td>
-    </tr>
-    <tr>
-      <td>0</td>
-      <td>0.1</td>
-      <td>-log(0.9) ≈ 0.105</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3>Applications:</h3>
-<ul>
-  <li>Widely used in binary classification problems.</li>
-  <li>Default loss function in many libraries such as <code>sklearn.metrics.log_loss</code> and <code>binary_crossentropy</code> in Keras.</li>
-  <li>Especially useful for models that output probabilities, such as Logistic Regression or Neural Networks.</li>
-</ul>
-
-<p>In summary, <strong>Log Loss penalizes confident but incorrect predictions more heavily</strong>, making it a powerful and reliable metric for classification performance.</p>
+  <p>In summary, <strong>Log Loss penalizes confident but incorrect predictions more heavily</strong>, making it a powerful and reliable metric for classification performance.</p>
 
